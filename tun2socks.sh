@@ -63,7 +63,7 @@ main() {
     )"
 
     socks_route="$(
-        ip -j route get 192.168.192.168 | jq -r '.[]|.dst+" via "+.gateway+" dev "+.prefsrc'
+        ip -j route get "${SOCKS%:*}" | jq -r '.[]|.dst+" via "+.gateway+" dev "+.prefsrc'
     )"
 
     socks_route_cleanup='true'
